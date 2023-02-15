@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void operator*(vector<char> arr1, vector<char> arr2) {
+vector<char> operator*(vector<char> arr1, vector<char> arr2) {
 	vector<char> FinalArr;
 	for (int i = 0; i < arr1.size(); i++) {
 		for (int j = 0; j < arr2.size(); j++) {
@@ -13,8 +13,8 @@ void operator*(vector<char> arr1, vector<char> arr2) {
 			}
 		}
 	}
-	for (int i = 0; i < FinalArr.size(); i++)
-		cout << FinalArr[i];
+
+  return FinalArr;
 }
 
 void stringToCharArr(string str, vector<char> &arr) {
@@ -23,7 +23,7 @@ void stringToCharArr(string str, vector<char> &arr) {
 }
 
 int main() {
-	vector<char> arr1{}, arr2{};
+	vector<char> arr1, arr2, FinalArr;
 	string str; 
 
 	cout << "Write word: "; cin >> str;
@@ -31,8 +31,11 @@ int main() {
 	cout << "Write another word: "; cin >> str;
 	stringToCharArr(str, arr2);
 
-	arr1*arr2;
-
+	FinalArr = arr1*arr2;
+  
+	for (int i = 0; i < FinalArr.size(); i++)
+		cout << FinalArr[i];
+  
 	return 0;
 }
 
